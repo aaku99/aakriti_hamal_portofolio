@@ -1,0 +1,6 @@
+header .logo {
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+    float: left; /* To align it beside your header text */
+    margin-right: 20px; /* Space between the logo and the text */
+}

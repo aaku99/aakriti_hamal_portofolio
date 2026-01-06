@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Contact form for reaching out to Aakriti.">
+    <meta name="keywords" content="contact form, get in touch">
+    <meta name="author" content="Aakriti">
+    <title>Aakriti - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <img src="logo.png" alt="Aakriti Hamal Logo" class="logo">
+        <h1>Contact Me</h1>
+    </div>
+
+    <div class="container">
+        <p>Undergraduate Computer Science Student</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="resume.html">RESUME</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="coursework.html">COURSEWORK</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+
+        <!-- ✅ FIXED FORM -->
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </section>
+</main>
+
+<!-- ✅ EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("VZPrL21siYR-9ojIw"); // your public key
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // 🚫 stop page reload
+
+    emailjs.sendForm(
+        "service_402mznp",
+        "template_4wj4k6e",
+        this
+    ).then(
+        function() {
+            alert("Message sent successfully!");
+            document.getElementById("contact-form").reset();
+        },
+        function(error) {
+            alert("Failed to send message ❌");
+            console.log(error);
+        }
+    );
+});
+</script>
+
+<footer>
+    <p>Back to <a href="index.html">Home</a></p>
+</footer>
+</body>
+</html>
